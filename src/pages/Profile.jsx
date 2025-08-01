@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import cat1 from '../assets/cat1.png';
 import cat2 from '../assets/cat2.png';
 
+const url = import.meta.env.URL
+
 function Profile({ token }) {
     const [user, setUser] = useState(null);
     const [update, setUpdate] = useState(false);
     const [newUsername, setNewUsername] = useState('')
     
     useEffect(() => {
-        fetch('http://localhost:4000/auth/profile', {
+        fetch(`v/auth/profile`, {
             credentials: 'include',
         })
         .then(res => res.json())
@@ -18,7 +20,7 @@ function Profile({ token }) {
     // update
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://localhost:4000/auth/update", {
+        const res = await fetch(`${url}/auth/update`, {
             method: 'PUT',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
@@ -37,7 +39,7 @@ function Profile({ token }) {
     
     // delete
     const handleDelete = async () => {
-        const res = await fetch('http://localhost:4000/auth/delete', {
+        const res = await fetch(`${url}/auth/delete`, {
             method: 'DELETE',
             credentials: 'include'
         })

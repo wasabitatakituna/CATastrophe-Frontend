@@ -13,11 +13,13 @@ import CreatePost from './pages/Create-Post.jsx';
 // css
 import './css/App.css'
 
+const url = import.meta.env.URL
+
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:4000/auth/profile', {
+    fetch(`${url}/auth/profile'`, {
       credentials: 'include'
     })
     .then(res => res.ok ? res.json() : null)

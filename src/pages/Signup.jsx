@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const url = import.meta.env.URL
+
 export default function Signup({ signup }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -8,7 +10,7 @@ export default function Signup({ signup }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:4000/auth/signup', {
+        const res = await fetch(`${url}/auth/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),

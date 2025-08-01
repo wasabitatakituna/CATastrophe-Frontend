@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import SinglePost from './SinglePost';
 import Error from './Error'
 
+const url = import.meta.env.URL
+
 export default function Posts() {
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:4000/auth/posts', {
+        fetch(`${url}/auth/posts`, {
             credentials: 'include',
         })
         .then((res) => res.json())

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 
+const url = import.meta.env.URL
+
 function CreatePost({ token }) {
     const [user, setUser] = useState(null);
     const [text, setText] = useState('');
     const [img, setImg] = useState(null);
         
     useEffect(() => {
-        fetch('http://localhost:4000/auth/profile', {
+        fetch(`${url}/auth/profile`, {
             credentials: 'include'
         })
         .then(res => res.json())
@@ -25,7 +27,7 @@ function CreatePost({ token }) {
         formData.append("post", JSON.stringify(newPost));
         formData.append("file", img);
 
-        const res = await fetch("http://localhost:4000/upload", {
+        const res = await fetch(`${url}/upload`, {
             method: 'POST',
             credentials: 'include',
             body: formData
