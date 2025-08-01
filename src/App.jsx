@@ -19,7 +19,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`${url}/auth/profile'`, {
+    fetch(`${url}/auth/profile`, {
       credentials: 'include'
     })
     .then(res => res.ok ? res.json() : null)
