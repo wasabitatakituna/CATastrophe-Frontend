@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import SinglePost from './SinglePost';
 import Error from './Error'
 
-const url = import.meta.env.URL
+const url = import.meta.env.VITE_API_URL
 
 export default function Posts() {
     const [posts, setPosts] = useState([]);

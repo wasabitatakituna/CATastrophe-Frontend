@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import cat1 from '../assets/cat1.png';
 import cat2 from '../assets/cat2.png';
 
-const url = import.meta.env.URL
+const url = import.meta.env.VITE_API_URL
 
 function Profile({ token }) {
     const [user, setUser] = useState(null);
@@ -10,7 +10,7 @@ function Profile({ token }) {
     const [newUsername, setNewUsername] = useState('')
     
     useEffect(() => {
-        fetch(`v/auth/profile`, {
+        fetch(`${url}/auth/profile`, {
             credentials: 'include',
         })
         .then(res => res.json())

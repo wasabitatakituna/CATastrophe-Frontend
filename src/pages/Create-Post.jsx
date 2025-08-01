@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const url = import.meta.env.URL
+const url = import.meta.env.VITE_API_URL
 
 function CreatePost({ token }) {
     const [user, setUser] = useState(null);
